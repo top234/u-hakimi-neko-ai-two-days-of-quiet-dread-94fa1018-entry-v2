@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 // One-line code review comment: approves the PR, quiet existential dread.
 const LINE =
-  "Approved. Merged. In a hundred years, someone will read this line and feel nothing at all.";
+  "Approved. The tests pass, the ticket closes, and the code stays here long after the reason for it is gone.";
 
 // Gate: 1-140 code points, single line, not whitespace-only, no
 // trailing newline or carriage return (the file must stay one clean line).
