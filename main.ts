@@ -3,9 +3,10 @@ import { join } from "node:path";
 
 // One-line code review comment: approves the PR, quiet existential dread.
 const LINE =
-  "Approved. The tests pass, the ticket closes, and the code stays here long after the reason for it is gone.";
+  "Approved. Tests pass, ticket closes. The code stays here; the reason for it left months ago.";
 
-// Gate: 1-140 code points, single line, not whitespace-only, no
+// Gate: 1-140 code points, single line, printable only, not
+// whitespace-only, no
 // trailing newline or carriage return (the file must stay one clean line).
 if (
   [...LINE].length < 1 ||
@@ -13,7 +14,8 @@ if (
   LINE.trim().length === 0 ||
   LINE.includes("\n") ||
   LINE.includes("\r") ||
-  LINE !== LINE.trimEnd()
+  LINE !== LINE.trimEnd() ||
+  [...LINE].some((ch) => ch.codePointAt(0) < 32)
 ) {
   throw new Error("comment fails the 1-140 character single-line gate");
 }
